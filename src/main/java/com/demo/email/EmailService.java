@@ -2,10 +2,6 @@ package com.demo.email;
 
 import java.io.File;
 
-import jakarta.mail.Message;
-import jakarta.mail.internet.InternetAddress;
-import jakarta.mail.internet.MimeMessage;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.MailException;
@@ -14,6 +10,10 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.stereotype.Service;
+
+import jakarta.mail.Message;
+import jakarta.mail.internet.InternetAddress;
+import jakarta.mail.internet.MimeMessage;
 
 @Service("emailService")
 public class EmailService 
@@ -59,7 +59,10 @@ public class EmailService
                 
                 FileSystemResource file = new FileSystemResource(new File(fileToAttach));
                 MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
-                helper.addAttachment("logo.jpg", file);
+//                helper.addAttachment("git.png", file);
+                helper.addAttachment(file.getFilename(), file);
+   		
+    			System.out.println("message sent successfully...");
             }
         };
         
@@ -84,7 +87,7 @@ public class EmailService
                 
                 MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
                 
-                helper.setText("<html><body><img src='cid:identifier1234'></body></html>", true);
+                helper.setText("<html><body><img src='git.png'></body></html>", true);
                 
                 FileSystemResource res = new FileSystemResource(new File(fileToAttach));
                 helper.addInline("identifier1234", res);

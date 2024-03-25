@@ -18,8 +18,8 @@ public class Application implements CommandLineRunner
     @Override
     public void run(String... args) 
     {
-    	emailService.sendMailWithAttachment("shyampratap467@gmail.com", "springBoot email", "I am testing this.", "img");
+    	emailService.sendMailWithAttachment("mohdhasim0074@gmail.com", "springBoot email", "I am testing this.", "git.png");
     	
-    	emailService.sendPreConfiguredMail("testing email sending with spring boot.");
+    	emailService.sendPreConfiguredMail("email sending with spring boot.");
     }
 }

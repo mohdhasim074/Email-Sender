@@ -10,7 +10,7 @@ public class EmailConfig {
 	public SimpleMailMessage emailTemplate() {
 		SimpleMailMessage message = new SimpleMailMessage();
 		message.setTo("mohdhasim0074@gmail.com");
-		message.setFrom("myjio0189@gmail.com");
+		message.setFrom("your email");
 		message.setSubject("spring boot email");
 		message.setText("FATAL :- Application crash. Save your job !!");
 		return message;
